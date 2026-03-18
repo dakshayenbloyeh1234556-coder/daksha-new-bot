@@ -1,20 +1,16 @@
 'use strict';
 
 const mineflayer = require('mineflayer');
-const { Movements } = require('mineflayer-pathfinder');
 const config = require('./settings.json');
 
 // Bot state
 let bot = null;
-let botState = {
-  connected: false,
-  startTime: Date.now()
-};
+let botState = { connected: false, startTime: Date.now() };
 let lookAroundInterval = null;
 let swingInterval = null;
 
 // ========================
-// CREATE BOT
+// CREATE BOT FUNCTION
 // ========================
 function createBot() {
   if (bot) {
@@ -34,15 +30,15 @@ function createBot() {
     version: config.server.version || false
   });
 
-  bot.once('spawn', () => {
-    console.log('[Bot] Connected & spawned!');
+  // show connected immediately on login
+  bot.once('login', () => {
     botState.connected = true;
+    console.log('[Bot] Logged in (waiting to spawn)...');
+  });
 
-    // Setup super lightweight movements
-    const mcData = require('minecraft-data')(bot.version);
-    const defaultMove = new Movements(bot, mcData);
-    defaultMove.allowFreeMotion = false;
-    defaultMove.canDig = false;
+  bot.once('spawn', () => {
+    console.log('[Bot] Spawned successfully!');
+    botState.connected = true;
 
     // =========================
     // Look around slowly
@@ -50,7 +46,7 @@ function createBot() {
     if (config.movement.look-around && config.movement.look-around.enabled) {
       lookAroundInterval = setInterval(() => {
         const yaw = Math.random() * 2 * Math.PI;
-        const pitch = Math.random() * Math.PI / 4 - Math.PI / 8; // slight up/down
+        const pitch = Math.random() * Math.PI / 4 - Math.PI / 8;
         bot.look(yaw, pitch, true);
       }, config.movement.look-around.interval || 20000);
     }
@@ -103,7 +99,7 @@ function scheduleReconnect() {
 createBot();
 
 // ========================
-// Simple console dashboard
+// Console dashboard
 // ========================
 setInterval(() => {
   const uptime = Math.floor((Date.now() - botState.startTime) / 1000);
@@ -111,8 +107,4 @@ setInterval(() => {
   const m = Math.floor((uptime % 3600) / 60);
   const s = uptime % 60;
   console.log(`[Status] Connected: ${botState.connected} | Uptime: ${h}h ${m}m ${s}s`);
-  if (bot && bot.entity) {
-    const pos = bot.entity.position;
-    console.log(`[Status] Position: ${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(pos.z)}`);
-  }
 }, 15000);
