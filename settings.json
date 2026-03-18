@@ -1,5 +1,5 @@
 {
-  "name": "AFK Bot",
+  "name": "Balanced AFK Bot",
   "bot-account": {
     "username": "bombocolaarbo",
     "password": "",
@@ -8,14 +8,11 @@
   "server": {
     "ip": "UNbrokenbleSMP.aternos.me",
     "port": 19924,
-    "version": "",
+    "version": "1.18.2",
     "try-creative": false
   },
   "position": {
-    "enabled": true,
-    "x": 0,
-    "y": 100,
-    "z": 0
+    "enabled": false
   },
   "utils": {
     "auto-auth": {
@@ -24,49 +21,48 @@
     },
     "anti-afk": {
       "enabled": true,
-      "sneak": true
+      "sneak": false
     },
     "chat-messages": {
       "enabled": true,
       "repeat": true,
-      "repeat-delay": 120,
+      "repeat-delay": 600,
       "messages": [
-        "I'm a regular player",
-        "Subscribe to Slobos!",
-        "I like to play Minecraft!"
+        "im here lol",
+        "afk a bit",
+        "brb",
+        "just chilling"
       ]
     },
-    "chat-log": true,
+    "chat-log": false,
     "auto-reconnect": true,
-    "auto-reconnect-delay": 2000,
-    "max-reconnect-delay": 120000
+    "auto-reconnect-delay": 5000,
+    "max-reconnect-delay": 60000
   },
   "movement": {
     "enabled": true,
     "circle-walk": {
-      "enabled": true,
-      "radius": 4,
-      "speed": 3000
+      "enabled": false
     },
     "look-around": {
       "enabled": true,
-      "interval": 5000
+      "interval": 12000
     },
     "random-jump": {
       "enabled": true,
-      "interval": 10000
+      "interval": 30000
     }
   },
   "modules": {
-    "avoidMobs": true,
-    "combat": true,
+    "avoidMobs": false,
+    "combat": false,
     "beds": false,
     "chat": true,
-    "console-commands": true
+    "console-commands": false
   },
   "combat": {
-    "attack-mobs": true,
-    "auto-eat": true
+    "attack-mobs": false,
+    "auto-eat": false
   },
   "beds": {
     "pick-up-day": false,
@@ -74,10 +70,10 @@
   },
   "discord": {
     "enabled": false,
-    "webhookUrl": "YOUR_DISCORD_WEBHOOK_URL_HERE",
+    "webhookUrl": "",
     "events": {
-      "connect": true,
-      "disconnect": true,
+      "connect": false,
+      "disconnect": false,
       "chat": false
     }
   },
