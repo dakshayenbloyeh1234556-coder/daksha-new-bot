@@ -1,5 +1,5 @@
 {
-  "name": "Balanced AFK Bot",
+  "name": "Light Walk Mine Bot",
   "bot-account": {
     "username": "bombocolaarbo",
     "password": "",
@@ -16,68 +16,50 @@
   },
   "utils": {
     "auto-auth": {
-      "enabled": true,
-      "password": "chalol78"
+      "enabled": false
     },
     "anti-afk": {
       "enabled": true,
       "sneak": false
     },
     "chat-messages": {
-      "enabled": true,
-      "repeat": true,
-      "repeat-delay": 600,
-      "messages": [
-        "im here lol",
-        "afk a bit",
-        "brb",
-        "just chilling"
-      ]
+      "enabled": false
     },
     "chat-log": false,
     "auto-reconnect": true,
-    "auto-reconnect-delay": 5000,
+    "auto-reconnect-delay": 10000,
     "max-reconnect-delay": 60000
   },
   "movement": {
     "enabled": true,
     "circle-walk": {
-      "enabled": false
+      "enabled": true,
+      "radius": 2,
+      "speed": 8000
     },
     "look-around": {
       "enabled": true,
-      "interval": 12000
+      "interval": 15000
     },
     "random-jump": {
-      "enabled": true,
-      "interval": 30000
+      "enabled": false
     }
   },
   "modules": {
     "avoidMobs": false,
     "combat": false,
     "beds": false,
-    "chat": true,
+    "chat": false,
     "console-commands": false
   },
   "combat": {
     "attack-mobs": false,
     "auto-eat": false
   },
-  "beds": {
-    "pick-up-day": false,
-    "place-night": false
-  },
-  "discord": {
-    "enabled": false,
-    "webhookUrl": "",
-    "events": {
-      "connect": false,
-      "disconnect": false,
-      "chat": false
+  "actions": {
+    "swing-arm": {
+      "enabled": true,
+      "interval": 7000
     }
-  },
-  "chat": {
-    "respond": true
   }
 }
