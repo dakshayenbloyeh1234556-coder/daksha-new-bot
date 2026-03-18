@@ -1,5 +1,5 @@
 {
-  "name": "Light Walk Mine Bot",
+  "name": "Stable AFK Bot",
   "bot-account": {
     "username": "bombocolaarbo",
     "password": "",
@@ -8,7 +8,7 @@
   "server": {
     "ip": "UNbrokenbleSMP.aternos.me",
     "port": 19924,
-    "version": "1.18.2",
+    "version": "1.19.4",
     "try-creative": false
   },
   "position": {
@@ -33,13 +33,11 @@
   "movement": {
     "enabled": true,
     "circle-walk": {
-      "enabled": true,
-      "radius": 2,
-      "speed": 8000
+      "enabled": false
     },
     "look-around": {
       "enabled": true,
-      "interval": 15000
+      "interval": 20000
     },
     "random-jump": {
       "enabled": false
@@ -56,10 +54,26 @@
     "attack-mobs": false,
     "auto-eat": false
   },
+  "beds": {
+    "pick-up-day": false,
+    "place-night": false
+  },
   "actions": {
     "swing-arm": {
       "enabled": true,
-      "interval": 7000
+      "interval": 15000
     }
+  },
+  "discord": {
+    "enabled": false,
+    "webhookUrl": "",
+    "events": {
+      "connect": false,
+      "disconnect": false,
+      "chat": false
+    }
+  },
+  "chat": {
+    "respond": false
   }
 }
