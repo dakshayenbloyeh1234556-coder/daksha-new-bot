@@ -6,7 +6,7 @@
     "type": "offline"
   },
   "server": {
-    "ip": "UNbrokenbleSMP.aternos.me:19924",
+    "ip": "UNbrokenbleSMP.aternos.me",
     "port": 19924,
     "version": "1.16.5",
     "try-creative": false
